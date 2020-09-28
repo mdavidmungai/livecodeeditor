@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online, Live Code Editor</title>
+  <meta name="description" content="This is an online code editor for html css and javascript. ">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="David Mungai">
+  <meta name="keywords" content="Live code editor, online code editor, live html editor, live css editor, live javascript editor">
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <div class="header-wrap">
+    <h1>Live, Online Code Editor</h1>
+    <h4>Compile HTML, CSS and JavaScript on the web</h4>
+  </div>
+  <div id="ide-parent">
+    <div id="button-wrapper">
+      <button onclick="switchPanel(0)">HTML</button>
+      <button onclick="switchPanel(1)">CSS</button>
+      <button onclick="switchPanel(2)">js</button>
+      <button onclick="runEdit(3)">Result</button>
+    </div>
+    <div id="ide-container">
+      <div class="panel-wrapper">
+        <div id="html">
+&lt;!--predefined html, but editable--&gt;
+
+&lt;div class="circle"&gt;
+	click me!
+&lt;/div&gt;
+
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <div id="css">
+/*predefined CSS, but editable*/
+
+.circle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: crimson;
+	margin: auto;
+	margin-top: 50px;
+	transition-duration: 300ms;
+}
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <div id="js">
+//predefined JavaScript, but editable
+
+var circle = document.querySelector(".circle");
+var bool = false;
+
+circle.addEventListener('click', function() {
+	if (!bool) {
+		circle.style.background = "coral";
+		bool = true;
+	} else {
+		circle.style.background = "crimson";
+		bool = false;
+	}
+});
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <iframe id="result"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <p>This code editor uses <a href="https://ace.c9.io/">Ace</a> for syntax highlighting and other text
+      editing features. Addition or changes to
+      the code is compiled on the fly when the result tab is clicked.</p>
+	  <a href="#">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 24 24"
+      style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+      <g>
+        <path xmlns="http://www.w3.org/2000/svg" id="icon"
+          d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"
+          data-original="#000000" style="" class="" />
+      </g>
+    </svg>
+	<a>
+  </div>
+  <div class="footer">
+    <div class="inner-wrap">
+      <p>&#169; <span></span> david mungai</p>
+      <div class="icons-wrap">
+        <a href="">
+          <img src="facebook.png" alt="">
+        </a>
+        <a href="">
+          <img src="twitter.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
